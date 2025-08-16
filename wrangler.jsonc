@@ -1,0 +1,85 @@
+{
+	"$schema": "node_modules/wrangler/config-schema.json",
+	"name": "cloudflare-ptftr",
+	"main": "src/index.ts",
+	"compatibility_date": "2025-08-16",
+	"observability": {
+		"enabled": true
+	},
+	"workers_dev": true,
+	"routes": [
+		{
+			"pattern": "ptftr.auth.aitsys.dev",
+			"custom_domain": true,
+			"zone_id": "e9e86e9cc4298b9666b01b5cd3795099"
+		}
+	],
+	"dev": {
+		"enable_containers": false,
+		"ip": "127.0.0.1",
+		"port": 8787,
+		"local_protocol": "http"
+	},
+	"account_id": "ba6a46b16b99f5f74858beafc22187c7",
+	"keep_names": true,
+	"keep_vars": false,
+	"minify": true,
+	"vars": {
+		"ENABLE_DEV": false, // WARNING: This allows secrets to be exposed under /dev/export-wrangler-secrets
+		"PATREON_ACCOUNT": "https://www.patreon.com/aiko_it_systems",
+		"REMOTE_STORE_ID": "766810d8e2c04f1ca24dcc45253af39e"
+	},
+	
+	"secrets_store_secrets": [
+		{
+			"binding": "DISCORD_CLIENT_ID",
+			"store_id": "766810d8e2c04f1ca24dcc45253af39e",
+			"secret_name": "PTFTR_DISCORD_CLIENT_ID"
+		},
+		{
+			"binding": "DISCORD_CLIENT_SECRET",
+			"store_id": "766810d8e2c04f1ca24dcc45253af39e",
+			"secret_name": "PTFTR_DISCORD_CLIENT_SECRET"
+		},
+		{
+			"binding": "DISCORD_TOKEN",
+			"store_id": "766810d8e2c04f1ca24dcc45253af39e",
+			"secret_name": "PTFTR_DISCORD_TOKEN"
+		},
+		{
+			"binding": "PATREON_CLIENT_ID",
+			"store_id": "766810d8e2c04f1ca24dcc45253af39e",
+			"secret_name": "PTFTR_PATREON_CLIENT_ID"
+		},
+		{
+			"binding": "PATREON_CLIENT_SECRET",
+			"store_id": "766810d8e2c04f1ca24dcc45253af39e",
+			"secret_name": "PTFTR_PATREON_CLIENT_SECRET"
+		},
+		{
+			"binding": "PATREON_CREATOR_ACCESS_TOKEN",
+			"store_id": "766810d8e2c04f1ca24dcc45253af39e",
+			"secret_name": "PTFTR_PATREON_CREATOR_ACCESS_TOKEN"
+		},
+		{
+			"binding": "PATREON_CREATOR_REFRESH_TOKEN",
+			"store_id": "766810d8e2c04f1ca24dcc45253af39e",
+			"secret_name": "PTFTR_PATREON_CREATOR_REFRESH_TOKEN"
+		},
+		{
+			"binding": "DISCORD_GUILD_ID",
+			"store_id": "766810d8e2c04f1ca24dcc45253af39e",
+			"secret_name": "PTFTR_DISCORD_GUILD_ID"
+		},
+		{
+			"binding": "DISCORD_ROLE_ID",
+			"store_id": "766810d8e2c04f1ca24dcc45253af39e",
+			"secret_name": "PTFTR_DISCORD_ROLE_ID"
+		},
+		{
+			"binding": "PATREON_FREE_TIER_ID",
+			"store_id": "766810d8e2c04f1ca24dcc45253af39e",
+			"secret_name": "PTFTR_PATREON_FREE_TIER_ID"
+		}
+	]
+}

@@ -1,0 +1,24 @@
+import { Context, Hono } from "hono";
+import { env } from "cloudflare:workers";
+import { authInitRoute } from "./routes/auth/auth";
+import { discordCallbackRoute } from "./routes/discord/discord-callback";
+import { patreonHandoverRoute } from "./routes/patreon/patreon-handover";
+import { patreonCallbackRoute } from "./routes/patreon/patreon-callback";
+import { discordInitRoute } from "./routes/discord/discord-init";
+import { exportWranglerSecretsRoute } from "./routes/dev/export-wrangler-secrets";
+import { finishRoute } from "./routes/auth/finish";
+
+const app = new Hono<{ Bindings: Env }>();
+if (env.ENABLE_DEV) {
+	exportWranglerSecretsRoute(app);
+}
+authInitRoute(app);
+discordInitRoute(app);
+discordCallbackRoute(app);
+patreonHandoverRoute(app);
+patreonCallbackRoute(app);
+finishRoute(app);
+//app.all("*", (c: Context): Response => c.redirect("/auth"));
+app.notFound((c: Context): Response => c.text("Not Found", 404));
+
+export default app;
