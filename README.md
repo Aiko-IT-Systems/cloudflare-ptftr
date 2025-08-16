@@ -1,6 +1,4 @@
-# Cloudflare Patreon-Discord OAuth Worker
-
-![Logo](images/cf-ptftr-logo.png)
+# <img src="images/cf-ptftr-logo.png" alt="Logo" height="64" style="max-width:200px;object-fit:contain;" /> Cloudflare Patreon-Discord OAuth Worker
 
 A secure Cloudflare Worker that automates Discord access for your Patreon supporters. It connects your Patreon and Discord accounts, checks supporter eligibility, and grants Discord server access or roles—no coding required.
 
