@@ -7,6 +7,7 @@ import { patreonCallbackRoute } from "./routes/patreon/patreon-callback";
 import { discordInitRoute } from "./routes/discord/discord-init";
 import { exportWranglerSecretsRoute } from "./routes/dev/export-wrangler-secrets";
 import { finishRoute } from "./routes/auth/finish";
+import { getFaviconDataUri } from "./helpers";
 
 const app = new Hono<{ Bindings: Env }>();
 if (env.ENABLE_DEV) {
@@ -18,7 +19,16 @@ discordCallbackRoute(app);
 patreonHandoverRoute(app);
 patreonCallbackRoute(app);
 finishRoute(app);
-//app.all("*", (c: Context): Response => c.redirect("/auth"));
+app.get('/favicon.ico', (c) => {
+  const bytes = Uint8Array.from(atob(getFaviconDataUri()), (ch) => ch.charCodeAt(0))
+  return new Response(bytes, {
+    headers: {
+      'Content-Type': 'image/x-icon',
+      'Cache-Control': 'public, max-age=31536000, immutable'
+    }
+  })
+})
+
 app.notFound((c: Context): Response => c.text("Not Found", 404));
 
 export default app;
