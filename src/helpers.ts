@@ -176,10 +176,15 @@ export function htmlOutput(
 		.redirect-message { color: #ff79c6; font-size: 0.9em; text-align: center; }
 		.footer { margin-top: 2em; color: #6272a4; font-size: 0.95em; text-align: center; }
 		.footer a { color: #8be9fd; text-decoration: underline; }
+		.logo-img { height: 128px; max-width: 90vw; object-fit: contain; }
+		.logo-container { text-align: center; margin-bottom: 1em; }
 		${additionalCss || ""}
       </style>
     </head>
     <body>
+	  <div class="logo-container">
+        <img src="/logo.png" alt="Logo" class="logo-img" />
+	  </div>
       <h2 class="message-header">${header}</h2>
       <div class="message-body">${message}</div>
 	  ${

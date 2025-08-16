@@ -7,7 +7,8 @@ import { patreonCallbackRoute } from "./routes/patreon/patreon-callback";
 import { discordInitRoute } from "./routes/discord/discord-init";
 import { exportWranglerSecretsRoute } from "./routes/dev/export-wrangler-secrets";
 import { finishRoute } from "./routes/auth/finish";
-import { getFaviconDataUri } from "./helpers";
+import { getFaviconDataUri, getLogoDataUri } from "./images";
+import { htmlOutput } from "./helpers";
 
 const app = new Hono<{ Bindings: Env }>();
 if (env.ENABLE_DEV) {
@@ -28,7 +29,26 @@ app.get('/favicon.ico', (c) => {
     }
   })
 })
-
-app.notFound((c: Context): Response => c.text("Not Found", 404));
+app.get('/logo.png', (c) => {
+  const base64 = getLogoDataUri();
+  const bytes = Uint8Array.from(atob(base64), (ch) => ch.charCodeAt(0));
+  return new Response(bytes, {
+    headers: {
+      'Content-Type': 'image/png',
+      'Cache-Control': 'public, max-age=31536000, immutable'
+    }
+  });
+});
+app.notFound((c: Context): Response =>
+  htmlOutput(
+    c,
+    "404 Not Found",
+    "Page Not Found",
+    "#ff5555",
+    "The page you requested does not exist.",
+    "#ffb86c",
+    404
+  )
+);
 
 export default app;
