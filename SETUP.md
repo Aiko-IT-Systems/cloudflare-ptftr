@@ -1,5 +1,7 @@
 # Cloudflare Patreon-Discord OAuth Worker Setup Guide
 
+![Logo](images/cf-ptftr-logo.png)
+
 This guide will help you set up the Cloudflare Patreon-Discord OAuth Worker to automate Discord access for your Patreon supporters.
 
 ---
