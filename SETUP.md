@@ -52,7 +52,7 @@ Edit `wrangler.jsonc` to include your own data.
 
 7. Note down your **Client ID** and **Client Secret** from the "OAuth2" tab.
 8. In the **OAuth2 URL Generator**, select the `bot` scope and set the **Bot Permissions** to `Manage Roles` & `Create Instant Invite`. Then, use the generated URL to add the bot to your Discord server.
-10. Create a new role in your Discord server that you want to assign to free Patreon supporters and note its ID. (Make sure the bot's role is above this role in the role hierarchy)
+9. Create a new role in your Discord server that you want to assign to free Patreon supporters and note its ID. (Make sure the bot's role is above this role in the role hierarchy)
 
 You should have the following credentials now:
 - **DISCORD_CLIENT_ID**
