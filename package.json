@@ -22,13 +22,13 @@
   },
   "dependencies": {
     "chanfana": "^2.6.3",
-    "discord-api-types": "0.38.20",
+    "discord-api-types": "0.38.21",
     "hono": "^4.6.20",
     "zod": "^4.0.0"
   },
   "devDependencies": {
-    "@types/node": "22.17.2",
+    "@types/node": "22.18.0",
     "@types/service-worker-mock": "^2.0.4",
-    "wrangler": "4.31.0"
+    "wrangler": "4.32.0"
   }
 }
