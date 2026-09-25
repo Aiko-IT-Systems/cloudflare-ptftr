@@ -11,7 +11,7 @@
     "type": "git",
     "url": "https://github.com/Aiko-IT-Systems/cloudflare-ptftr"
   },
-  "packageManager": "npm@11.5.2",
+  "packageManager": "npm@12.1.0",
   "license": "MIT",
   "private": true,
   "scripts": {
@@ -21,13 +21,13 @@
     "cf-typegen": "wrangler types"
   },
   "dependencies": {
-    "chanfana": "^2.6.3",
+    "chanfana": "^3.0.0",
     "discord-api-types": "0.38.20",
     "hono": "^4.6.20",
     "zod": "^4.0.0"
   },
   "devDependencies": {
-    "@types/node": "22.17.2",
+    "@types/node": "24.19.0",
     "@types/service-worker-mock": "^2.0.4",
     "wrangler": "4.31.0"
   }
